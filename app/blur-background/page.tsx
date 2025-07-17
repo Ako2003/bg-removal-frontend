@@ -12,7 +12,7 @@ export default function ImageUploader() {
     const [originalImage, setOriginalImage] = useState<string | null>(null);
     const [uploadProgress, setUploadProgress] = useState<number | null>(null);
     const inputRef = useRef<HTMLInputElement>(null);
-    const development = `${process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_BACKEND_API_LOCAL : "https://bg-removal-python.onrender.com/"}blur-bg`;
+    const development = `${process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_BACKEND_API_LOCAL : process.env.NEXT_PUBLIC_BACKEND_API}blur-bg`;
 
     const handleDemoClick = async (url: string) => {
         try {
