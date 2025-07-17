@@ -209,9 +209,6 @@ export default function ImageUploader() {
     };
 
 
-    console.log("NODE_ENV:", process.env.NODE_ENV); // likely undefined in browser
-
-
     const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
         e.preventDefault();
         const file = e.dataTransfer.files?.[0];
