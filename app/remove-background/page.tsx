@@ -141,7 +141,7 @@ export default function ImageUploader() {
             formData.append('file', file);
 
             const xhr = new XMLHttpRequest();
-            xhr.open('POST', `${process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_BACKEND_API_LOCAL : process.env.NEXT_PUBLIC_BACKEND_API}remove-bg`);
+            xhr.open('POST', `${process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_BACKEND_API_LOCAL : "https://bg-removal-python.onrender.com/"}remove-bg`);
 
             xhr.upload.onprogress = (event) => {
                 if (event.lengthComputable) {
