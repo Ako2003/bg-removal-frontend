@@ -41,7 +41,7 @@ export default function ImageUploader() {
 
             // Use XMLHttpRequest to send it (so progress bar stays consistent with manual uploads)
             const xhr = new XMLHttpRequest();
-            xhr.open('POST', 'http://localhost:8000/remove-bg');
+            xhr.open('POST', `${process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_BACKEND_API_LOCAL : process.env.NEXT_PUBLIC_BACKEND_API}remove-bg`);
 
             xhr.upload.onprogress = (event) => {
                 if (event.lengthComputable) {
@@ -105,8 +105,6 @@ export default function ImageUploader() {
         }
     };
 
-
-
     const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
         try {
             // Restart images on a new upload
@@ -143,7 +141,7 @@ export default function ImageUploader() {
             formData.append('file', file);
 
             const xhr = new XMLHttpRequest();
-            xhr.open('POST', 'http://localhost:8000/remove-bg');
+            xhr.open('POST', `${process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_BACKEND_API_LOCAL : process.env.NEXT_PUBLIC_BACKEND_API}remove-bg`);
 
             xhr.upload.onprogress = (event) => {
                 if (event.lengthComputable) {

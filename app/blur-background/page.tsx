@@ -41,7 +41,8 @@ export default function ImageUploader() {
 
             // Use XMLHttpRequest to send it (so progress bar stays consistent with manual uploads)
             const xhr = new XMLHttpRequest();
-            xhr.open('POST', 'http://localhost:8000/blur-bg');
+            xhr.open('POST', `${process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_BACKEND_API_LOCAL : process.env.NEXT_PUBLIC_BACKEND_API}blur-bg`);
+
 
             xhr.upload.onprogress = (event) => {
                 if (event.lengthComputable) {
@@ -143,7 +144,7 @@ export default function ImageUploader() {
             formData.append('file', file);
 
             const xhr = new XMLHttpRequest();
-            xhr.open('POST', 'http://localhost:8000/blur-bg');
+            xhr.open('POST', `${process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_BACKEND_API_LOCAL : process.env.NEXT_PUBLIC_BACKEND_API}blur-bg`);
 
             xhr.upload.onprogress = (event) => {
                 if (event.lengthComputable) {
